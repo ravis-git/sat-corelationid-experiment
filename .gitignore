@@ -1,0 +1,4 @@
+build/
+.idea/
+artillery_*/
+gradle/
