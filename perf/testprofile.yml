@@ -1,0 +1,16 @@
+#This will run a test for 2 minutes, with 10 virtual users created every second, each of which will send a GET and a
+#POST request with a pause of 1 second in between.
+
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 20
+      arrivalRate: 400
+  defaults:
+    headers:
+      content-type: "application/json"
+scenarios:
+  - flow:
+      - get:
+          url: "/api/terminal"
+      - think: 1

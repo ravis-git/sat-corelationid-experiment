@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  predix_crud_service:
+    image: rpalakodeti/predix-crud-service
+    ports:
+    - 8085:8080
+#    links:
+#    - predix-aggregate-com.example.predixcrudservice.service
+#    depends_on:
+#    - eureka-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+#      - DOCKER_IP=$DOCKER_IP
+
+  predix_aggregate_service:
+    image: rpalakodeti/predix-aggregate-service
+    links:
+      - predix_crud_service
+    ports:
+    - 8086:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+#      - DOCKER_IP=$DOCKER_IP

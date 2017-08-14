@@ -1,0 +1,14 @@
+task cleanSubProjects {
+    subprojects.each {
+        dependsOn (":${it.name}:clean")
+    }
+}
+
+task buildImages {
+    println 'Building projects: '
+
+    subprojects.each {
+        println "${it.name}"
+        dependsOn (":${it.name}:buildDocker")
+    }
+}

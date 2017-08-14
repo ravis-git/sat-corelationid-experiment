@@ -1,0 +1,16 @@
+security:
+  oauth2:
+    client:
+      clientId: bb7bf1b4c10e3213aa25
+      clientSecret: 9f26ccb25d62e3cec49e9374a22b00c6803a52bb
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAutnehticationScheme: form
+    resource:
+      tokenInfoUri: https://api.github.com/user
+      userInfoUrl: https://api.github.com/user
+
+
+logging:
+  pattern:
+    console: "%d %-5level [%thread] %logger{0} : %msg %X{transaction.id}%n"
